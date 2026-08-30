@@ -9,3 +9,7 @@ hl.config({
   }
 })
 ```
+### GitHub
+```bash
+gh auth login
+```
