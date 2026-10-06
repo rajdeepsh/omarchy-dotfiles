@@ -12,6 +12,11 @@ hl.config({
   },
 })
 ```
+### Keybindings
+```lua
+hl.unbind("SUPER + SHIFT + A")
+o.bind("SUPER + SHIFT + A", "Claude", { webapp = "https://claude.ai" })
+```
 ### GitHub
 ```bash
 gh auth login
