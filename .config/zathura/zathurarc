@@ -1,1 +1,3 @@
 set adjust-open width
+set guioptions ""
+map <C-s> toggle_statusbar
