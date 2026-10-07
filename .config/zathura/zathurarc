@@ -1,4 +1,5 @@
 set adjust-open width
 set guioptions ""
 set selection-clipboard clipboard
+set selection-notification false
 map <C-s> toggle_statusbar
