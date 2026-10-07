@@ -13,21 +13,40 @@ maps to `~/.claude`:
 | `.config/hypr/bindings.lua`      | `~/.config/hypr/bindings.lua`     |
 | `.config/hypr/input.lua`         | `~/.config/hypr/input.lua`        |
 | `.config/lazygit/config.yml`     | `~/.config/lazygit/config.yml`    |
+| `.config/mimeapps.list`          | `~/.config/mimeapps.list`         |
 | `.config/zathura/zathurarc`      | `~/.config/zathura/zathurarc`     |
 | `.claude/settings.json`          | `~/.claude/settings.json`         |
 
 ## `sync` command
 
 When asked to "sync", push every file under `.config/` and `.claude/` in this
-repo to its local counterpart. The two directories are handled differently.
+repo to its local counterpart. Most `.config/` files are copied, while
+`.config/mimeapps.list` and `.claude/settings.json` are merged.
 
 ### `.config/`: copy
 
-Copy each repo file over the local file with `cp`, creating parent
-directories as needed. The local file ends up identical to the repo file.
-Use plain `cp`, never `mv` or `cp --remove-destination`, so that if the local
-path is a symlink the copy writes through to its target and the link stays
-intact.
+Except for `mimeapps.list` (see below), copy each repo file over the local
+file with `cp`, creating parent directories as needed. The local file ends
+up identical to the repo file. Use plain `cp`, never `mv` or
+`cp --remove-destination`, so that if the local path is a symlink the copy
+writes through to its target and the link stays intact.
+
+### `.config/mimeapps.list`: merge
+
+Never replace the local file wholesale. Parse `.config/mimeapps.list` and
+`~/.config/mimeapps.list` as INI files, then for each `[section]` and
+`mimetype=handler` entry in the repo file:
+
+- If the section does not exist locally, add it.
+- If the mimetype already exists in that section locally, update its handler
+  to the repo value.
+- If the mimetype does not exist in that section locally, append it.
+
+Entries and sections that only exist locally are left untouched, as are the
+order and any blank lines of the existing local content. Omarchy writes to
+this file too (for example `omarchy default browser`), so its entries must
+survive a sync. If the local file does not exist, create it with the repo
+contents.
 
 ### `.claude/`: merge
 
