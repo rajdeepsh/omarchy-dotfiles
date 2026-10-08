@@ -13,3 +13,5 @@ o.bind("SUPER + SHIFT + U", "Update Omarchy", "omarchy-launch-floating-terminal-
 hl.unbind("SUPER + CTRL + A")
 o.bind("SUPER + CTRL + A", "Agents", "omarchy-shell shell toggle omarchy.agents")
 hl.unbind("SUPER + L")
+hl.unbind("SUPER + SHIFT + V")
+o.bind("SUPER + SHIFT + V", "Slack", { webapp = "https://nus-test.slack.com", focus = true })
