@@ -28,4 +28,4 @@ gui:
       - "#c0caf5"
 git:
   diffRenderers:
-    - command: delta --dark --paging=never --syntax-theme=tokyonight_night
+    - command: delta --dark --paging=never --syntax-theme=ansi
