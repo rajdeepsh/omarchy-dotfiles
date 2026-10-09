@@ -26,3 +26,6 @@ gui:
       - "#db4b4b"
     defaultFgColor:
       - "#c0caf5"
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never --syntax-theme=tokyonight_night

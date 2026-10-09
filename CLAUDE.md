@@ -12,6 +12,7 @@ maps to `~/.claude`:
 |----------------------------------|-----------------------------------|
 | `.config/hypr/bindings.lua`      | `~/.config/hypr/bindings.lua`     |
 | `.config/hypr/input.lua`         | `~/.config/hypr/input.lua`        |
+| `.config/bat/themes/*.tmTheme`   | `~/.config/bat/themes/`           |
 | `.config/lazygit/config.yml`     | `~/.config/lazygit/config.yml`    |
 | `.config/mimeapps.list`          | `~/.config/mimeapps.list`         |
 | `.config/zathura/zathurarc`      | `~/.config/zathura/zathurarc`     |
